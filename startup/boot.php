@@ -2,8 +2,8 @@
 
 require_once('./vendor/autoload.php');
 
-define('Fatura+', 'Minha App');
-define('ROTA_LOGIN', 'auth/login');
+define('APP_NAME', 'Minha App');
+define('ROUTE_LOGIN', 'auth/login');
 
 ActiveRecord\Config::initialize(function ($cfg) {
     $cfg->set_model_directory('./models');
