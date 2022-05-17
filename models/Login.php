@@ -8,7 +8,7 @@ class Auth
 
     function checkAuth($username, $password)
     {
-        if ($username  == 'jason' && $password == '123') {
+        if ($username == 'jason' && $password== '123') {
 
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
