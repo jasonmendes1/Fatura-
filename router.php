@@ -4,6 +4,7 @@ require_once 'controllers/AuthController.php';
 require_once 'controllers/FaturaController.php';
 require_once 'controllers/ProdutoController.php';
 require_once 'controllers/EmpresaController.php';
+require_once 'controllers/UserController.php';
 
 if(!(isset($_GET['c']) AND isset($_GET['a']))){
     $auth = new AuthController();
@@ -95,6 +96,36 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $empresa->delete($id);
                     break;               
             }
-            break;
-        }
+        break;
+        case 'user':
+            $user = new UserController();
+            switch ($action) {
+                case 'index':
+                    $user->index();
+                    break;
+                case 'show':
+                    $id = $_GET['id'];
+                    $user->show($id);
+                    break;
+                case 'create':
+                    $user->create();
+                    break;
+                case 'store':
+                    $user->store();
+                    break;
+                case 'edit':
+                    $id = $_GET['id'];
+                    $user->edit($id);
+                    break;
+                case 'update':
+                    $id = $_GET['id'];
+                    $user->update($id);
+                    break;
+                case 'delete':
+                    $id = $_GET['id'];
+                    $user->delete($id);
+                    break;               
+            }
+        break;
     }
+}
