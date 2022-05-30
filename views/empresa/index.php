@@ -18,7 +18,7 @@
                     <th>NIF</th>
                     <th>Morada</th>
                     <th>Código Postal</th>
-                    <th>Localidade</th>
+                    <th>Código Postal</th>
                     <th>Capital</th>
                 </tr>
             </thead>

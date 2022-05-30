@@ -54,6 +54,9 @@
                             <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
                         </li>
 

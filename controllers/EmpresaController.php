@@ -9,7 +9,7 @@ class EmpresaController extends BaseController{
         $empresas = Empresa::all();
 
         //mostrar a vista index passando os dados por parâmetro
-        $this->renderView('empresas','index', ['empresas' => $empresas]);
+        $this->renderView('empresa','index', ['empresas' => $empresas]);
     }
 
     public function show($id)

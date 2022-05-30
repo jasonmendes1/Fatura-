@@ -3,6 +3,7 @@ require_once 'startup/boot.php';
 require_once 'controllers/AuthController.php';
 require_once 'controllers/FaturaController.php';
 require_once 'controllers/ProdutoController.php';
+require_once 'controllers/EmpresaController.php';
 
 if(!(isset($_GET['c']) AND isset($_GET['a']))){
     $auth = new AuthController();
