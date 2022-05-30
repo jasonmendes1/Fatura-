@@ -26,7 +26,13 @@
                 <?php foreach ($faturas as $fatura) { ?>
                     <tr>
                         <td><?= $fatura->id ?></td>
-                        <td><?= $fatura->id ?></td>
+                        <td><?= $fatura->data ?></td>
+                        <td><?= $fatura->valortotal ?></td>
+                        <td><?= $fatura->ivatotal ?></td>
+                        <td><?= $fatura->estado ?></td>
+                        <td><?= $fatura->linhafatura_id ?></td>
+                        <td><?= $fatura->cliente_id ?></td>
+                        <td><?= $fatura->func_id ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -35,7 +41,7 @@
     <div class="col-sm-6">
         <h4>Criar nova Fatura</h4>
         <p>
-            <a href="router.php?c=book&a=create" class="btn btn-info" role="button">Criar</a>
+            <a href="router.php?c=fatura&a=create" class="btn btn-info" role="button">Criar</a>
         </p>
     </div>
 </body>

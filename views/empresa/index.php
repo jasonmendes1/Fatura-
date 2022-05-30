@@ -18,7 +18,7 @@
                     <th>NIF</th>
                     <th>Morada</th>
                     <th>Código Postal</th>
-                    <th>Código Postal</th>
+                    <th>Localidade</th>
                     <th>Capital</th>
                 </tr>
             </thead>
@@ -37,6 +37,6 @@
                 <?php } ?>
             </tbody>
         </table>
-        <td><a href="router.php?c=empresa&a=create" class="btn btn-info" role="button">New</a></td>
+        <td><a href="router.php?c=empresa&a=create" class="btn btn-info" role="button">Criar</a></td>
     </div>
 </body>

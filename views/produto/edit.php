@@ -32,7 +32,7 @@
         <div class="col-sm-6">
             <h4>Criar novo Produto</h4>
             <p>
-                <a href="router.php?c=produto&a=create" class="btn btn-info" role="button">New</a>
+                <a href="router.php?c=produto&a=create" class="btn btn-info" role="button">Criar</a>
             </p>
         </div>
     </div>

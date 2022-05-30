@@ -35,6 +35,28 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'index':
                     $fatura->index();
                     break;
+                case 'show':
+                    $id = $_GET['id'];
+                    $fatura->show($id);
+                    break;
+                case 'create':
+                    $fatura->create();
+                    break;
+                case 'store':
+                    $fatura->store();
+                    break;
+                case 'edit':
+                    $id = $_GET['id'];
+                    $fatura->edit($id);
+                    break;
+                case 'update':
+                    $id = $_GET['id'];
+                    $fatura->update($id);
+                    break;
+                case 'delete':
+                    $id = $_GET['id'];
+                    $fatura->delete($id);
+                    break;
             }
         break;
         case 'produto':

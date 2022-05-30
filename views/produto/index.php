@@ -32,6 +32,6 @@
                 <?php } ?>
             </tbody>
         </table>
-        <td><a href="router.php?c=produto&a=create" class="btn btn-info" role="button">New</a></td>
+        <td><a href="router.php?c=produto&a=create" class="btn btn-info" role="button">Criar</a></td>
     </div>
 </body>
