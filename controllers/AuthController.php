@@ -1,5 +1,4 @@
 <?php
-
 require_once 'BaseController.php';
 
 class AuthController extends BaseController
@@ -13,11 +12,10 @@ class AuthController extends BaseController
     {
         include_once './models/Auth.php';
         $auth = new Auth();
-
         $session = $auth->checkAuth($_POST['username'], $_POST['password']);
 
         if ($session) {
-            $this->redirectToRoute('plano', 'index');
+            $this->redirectToRoute('produto', 'index');
         } else {
             $this->redirectToRoute('auth', 'index');
         }
@@ -26,7 +24,7 @@ class AuthController extends BaseController
     public function logout()
     {
         include_once './models/Auth.php';
-        $auth =  new Auth();
+        $auth = new Auth();
 
         $auth->logout();
         $this->redirectToRoute('auth', 'index');

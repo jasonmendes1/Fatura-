@@ -1,20 +1,16 @@
 <?php
 
-require_once('./vendor/autoload.php');
-
 class BaseController
 {
-    public function redirectToRoute($view, $params = [])
-    {
+    public function renderView($controllerPrefix, $viewName, $params = []) {
         extract($params);
-        
+        require_once 'views/layouts/header.php';
+        require_once 'views/'. $controllerPrefix . '/'. $viewName .'.php';
+        require_once 'views/layouts/footer.php';
     }
 
-    public function renderView($view, $params = [])
+    public function redirectToRoute($controllerPrefix, $viewName)
     {
-        extract($params);
-        require_once "vistas/layout/header.php";
-        require_once "vistas/$view.php";
-        require_once "vistas/layout/footer.php";
+        header('Location: ./router.php?c='.$controllerPrefix.'&a='.$viewName);
     }
 }
