@@ -60,6 +60,9 @@
                             <a class="nav-link" href="router.php?c=user&a=index">Users</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
                         </li>
 

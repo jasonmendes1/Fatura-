@@ -30,7 +30,7 @@
         </form>
         </div>
         <div class="col-sm-6">
-            <h4>Create a new Product</h4>
+            <h4>Criar novo Produto</h4>
             <p>
                 <a href="router.php?c=produto&a=create" class="btn btn-info" role="button">New</a>
             </p>

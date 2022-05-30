@@ -25,7 +25,7 @@
         <div class="col-sm-6">
             <h4>Create a new Product</h4>
             <p>
-                <a href="router.php?c=empresa&a=create" class="btn btn-info" role="button">New</a>
+                <a href="router.php?c=empresa&a=create" class="btn btn-info" role="button">Criar</a>
             </p>
         </div>
     </div>
