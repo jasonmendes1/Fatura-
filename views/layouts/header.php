@@ -62,10 +62,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
                         </li>
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
                         </li>
-
+    -->
                     </ul>
                     <form class="d-flex">
                         <form action="./router.php?c=auth&a=logout" method="POST">
