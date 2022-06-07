@@ -22,9 +22,18 @@ class FaturaController extends BaseController{
         }
     }
 
-    public function create()
+    public function create($idcliente)
     {        
-        //mostrar a vista create
+        if($idcliente==null){
+            $this->renderView('user','create');
+        }
+        else{
+            $fatura = new Fatura($_POST);
+            $fatura->data = Carbon::now();
+            $fatura->total = 0;
+            $fatura->estado = 'Em Lançamento';
+            $fatura->cliente_id = $idcliente;
+        }
 
         $this->renderView('fatura','create');
     }
