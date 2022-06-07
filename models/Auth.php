@@ -12,7 +12,6 @@ class Auth
         if ($user!=null) {
 
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
             return true;
         } else {
             return false;

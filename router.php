@@ -5,6 +5,8 @@ require_once 'controllers/FaturaController.php';
 require_once 'controllers/ProdutoController.php';
 require_once 'controllers/EmpresaController.php';
 require_once 'controllers/UserController.php';
+require_once 'controllers/FaturalinhaController.php';
+
 
 if(!(isset($_GET['c']) AND isset($_GET['a']))){
     $auth = new AuthController();
@@ -40,7 +42,13 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $fatura->show($id);
                     break;
                 case 'create':
-                    $fatura->create();
+                    if(isset($_GET['idcliente'])){
+                    $idcliente = $_GET['idcliente'];                                    
+                    }
+                    else{
+                        $idcliente = null;
+                    }
+                    $fatura->create($idcliente);
                     break;
                 case 'store':
                     $fatura->store();
@@ -57,6 +65,12 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $id = $_GET['id'];
                     $fatura->delete($id);
                     break;
+                case 'selectcliente':
+                    $fatura->selectcliente();
+                    break;
+                case 'selectproduto':
+                    $fatura->selectproduto();
+                    break;      
             }
         break;
         case 'produto':
@@ -86,7 +100,7 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'delete':
                     $id = $_GET['id'];
                     $produto->delete($id);
-                    break;
+                    break;   
             }
         break;
         case 'empresa':
@@ -147,6 +161,45 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $id = $_GET['id'];
                     $user->delete($id);
                     break;               
+            }
+        break;
+        case 'faturalinha':
+            $faturalinha = new FaturalinhaController();
+            switch ($action) {
+                case 'index':
+                    $faturalinha->index();
+                    break;
+                case 'show':
+                    $id = $_GET['id'];
+                    $faturalinha->show($id);
+                    break;
+                case 'create':
+                    var_dump($_GET['idfatura']);
+                    die();
+                    $idfatura = $_GET['idfatura'];
+                    if(isset($_GET['idproduto'])){
+                        $idproduto = $_GET['idproduto'];                                    
+                        }
+                        else{
+                            $idproduto = null;
+                        }
+                    $faturalinha->create($idfatura, $idproduto);
+                    break;
+                case 'store':
+                    $faturalinha->store();
+                    break;
+                case 'edit':
+                    $id = $_GET['id'];
+                    $faturalinha->edit($id);
+                    break;
+                case 'update':
+                    $id = $_GET['id'];
+                    $faturalinha->update($id);
+                    break;
+                case 'delete':
+                    $id = $_GET['id'];
+                    $faturalinha->delete($id);
+                    break;  
             }
         break;
     }

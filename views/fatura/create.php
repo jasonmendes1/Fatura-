@@ -7,8 +7,9 @@
 
 <body>
     <div class="container">
-        <h2>Produtos</h2>
-        <p>Lista de produtos da <i>Fatura+</i></p>
+    <a href="router.php?c=fatura&a=selectcliente" class="btn btn-info" role="button">Selecionar Cliente</a>
+        <h2>Faturas</h2>
+        <p>Lista de Faturas da <i>Fatura+</i></p>
         <table class="table table-hover">
             <thead>
                 <tr>

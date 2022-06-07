@@ -17,7 +17,6 @@
                     <th>Valor Total</th>
                     <th>Iva Total</th>
                     <th>Estado</th>
-                    <th>Linha Fatura</th>
                     <th>Cliente</th>
                     <th>Funcionário</th>
                 </tr>
@@ -30,7 +29,6 @@
                         <td><?= $fatura->valortotal ?></td>
                         <td><?= $fatura->ivatotal ?></td>
                         <td><?= $fatura->estado ?></td>
-                        <td><?= $fatura->linhafatura_id ?></td>
                         <td><?= $fatura->cliente_id ?></td>
                         <td><?= $fatura->func_id ?></td>
                     </tr>

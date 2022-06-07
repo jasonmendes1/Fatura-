@@ -37,6 +37,5 @@
                 <?php } ?>
             </tbody>
         </table>
-        <td><a href="router.php?c=empresa&a=create" class="btn btn-info" role="button">Criar</a></td>
     </div>
 </body>

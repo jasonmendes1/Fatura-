@@ -22,11 +22,22 @@ class FaturalinhaController extends BaseController{
         }
     }
 
-    public function create()
+    public function create($idfatura, $idproduto)
     {        
-        //mostrar a vista create
+        if ($idproduto==null){
+            $this->renderView('faturalinha', 'create');
+        } else {
+            $faturalinha = new FaturaLinha();
+            $faturalinha->quantidade = 0;
+            $faturalinha->valor = 0;
+            $faturalinha->fatura_id = $idfatura;
+            $faturalinha->produto_id = $idproduto;
 
-        $this->renderView('faturalinha','create');
+            $faturalinha->save();
+            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id]);
+        }
+
+        $this->renderView('faturalinha','create', ['fatura' => $idfatura, 'produto' => $idproduto]);
     }
 
     public function store()
