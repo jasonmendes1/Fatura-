@@ -8,7 +8,8 @@ class Auth
 
     function checkAuth($username, $password)
     {
-        if ($username == 'jason' && $password== '123') {
+        $user = User::find_by_username_and_password($username, $password);
+        if ($user!=null) {
 
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
@@ -17,6 +18,7 @@ class Auth
             return false;
         }
     }
+    
 
     function isLoggedin()
     {

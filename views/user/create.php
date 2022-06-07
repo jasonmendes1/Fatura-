@@ -135,7 +135,6 @@
             <p class="text-center">Have an account? <a href="">Log In</a> </p>
         </form>
     </article>
-
 </div>
 
 <script>

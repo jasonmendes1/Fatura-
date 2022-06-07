@@ -37,7 +37,7 @@ class FaturaController extends BaseController{
             $this->redirectToRoute('fatura','index');
         } else {
             //mostrar vista create passando o modelo como parâmetro
-            $this->renderView('fatura','create', ['empresa' => $fatura]);
+            $this->renderView('fatura','create', ['fatura' => $fatura]);
         }
     }
 
