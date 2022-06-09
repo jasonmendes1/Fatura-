@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 </head>
 
-
-
-
 <script>
     $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
