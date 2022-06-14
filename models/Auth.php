@@ -3,31 +3,32 @@ class Auth
 {
     public  function __construct()
     {
-        session_start();
+        if(session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
     }
 
     function checkAuth($username, $password)
     {
         $user = User::find_by_username_and_password($username, $password);
-        $cliente = User::find_all_by_role('Cliente');
-        $func = User::find_all_by_role('Funcionário');
-        $admin = User::find_all_by_role('Administrador');
         
-        if ($user!=null) {
-            $_SESSION['username'] = $username;
-            //if ($cliente){}
-            //if ($func){}
-            //if ($admin){}
+        if ($user) {
+            $_SESSION['id'] = $user->id;
             return true;
         } else {
             return false;
         }
     }
     
+    public function getUser(){
+        $user = User::find([$_SESSION['id']]);
+
+        return $user;
+    }
 
     function isLoggedin()
     {
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['id'])) {
             return true;
         } else {
             return false;

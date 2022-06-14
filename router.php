@@ -174,8 +174,6 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $faturalinha->show($id);
                     break;
                 case 'create':
-                    var_dump($_GET['idfatura']);
-                    die();
                     $idfatura = $_GET['idfatura'];
                     if(isset($_GET['idproduto'])){
                         $idproduto = $_GET['idproduto'];                                    

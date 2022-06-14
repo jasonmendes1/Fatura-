@@ -23,18 +23,22 @@ class FaturalinhaController extends BaseController{
     }
 
     public function create($idfatura, $idproduto)
-    {        
+    { 
         if ($idproduto==null){
             $this->renderView('faturalinha', 'create');
         } else {
             $faturalinha = new FaturaLinha();
-            $faturalinha->quantidade = 0;
-            $faturalinha->valor = 0;
+            # $faturalinha->quantidade = 0;
+            # $faturalinha->valor = 0;
             $faturalinha->fatura_id = $idfatura;
             $faturalinha->produto_id = $idproduto;
 
+            $produtolinhaid = $idproduto;
+            $faturalinhaid = $idfatura;
+
+
             $faturalinha->save();
-            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id]);
+            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id, 'produto' => $produtolinhaid]);
         }
 
         $this->renderView('faturalinha','create', ['fatura' => $idfatura, 'produto' => $idproduto]);
@@ -45,7 +49,7 @@ class FaturalinhaController extends BaseController{
         $faturalinha = new FaturaLinha($_POST);
         if($faturalinha->is_valid()){
             $faturalinha->save();
-            $this->redirectToRoute('faturalinha','index');
+            $this->redirectToRoute('fatura','index');
         } else {
             //mostrar vista create passando o modelo como parâmetro
             $this->renderView('faturalinha','create', ['faturalinha' => $faturalinha]);

@@ -15,9 +15,19 @@ class AuthController extends BaseController
         $session = $auth->checkAuth($_POST['username'], $_POST['password']);
 
         if ($session) {
-            $this->redirectToRoute('produto', 'index');
-        } else {
+            $user = $auth->getUser();
+
+            if($user->role == 'Cliente'){
+                $this->redirectToRoute('produto', 'index');
+            } else 
+            if($user->role == 'Funcionario'){
+                $this->redirectToRoute('produto', 'index');
+            } else
+            if($user->role == 'Administrador'){
+                $this->redirectToRoute('user', 'index');
+            } else {
             $this->redirectToRoute('auth', 'index');
+            }
         }
     }
 

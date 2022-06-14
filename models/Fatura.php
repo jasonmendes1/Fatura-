@@ -9,4 +9,9 @@ class Fatura extends \ActiveRecord\Model
         array('cliente_id'),
         array('func_id')
     );
+    static $belongs_to = array(
+        array('user'),
+        array('faturalinha'),
+        );
+       
 }

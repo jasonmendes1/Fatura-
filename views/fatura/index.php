@@ -31,7 +31,7 @@
             <tbody>
                 <?php foreach ($faturas as $fatura) { ?>
                     <tr>
-                        <td><?= $fatura->id ?></td>
+                        <td><a href="router.php?c=fatura&a=show&id=<?=$fatura->id ?>"><?= $fatura->id ?></a></td>
                         <td><?= $fatura->data ?></td>
                         <td><?= $fatura->valortotal ?></td>
                         <td><?= $fatura->ivatotal ?></td>

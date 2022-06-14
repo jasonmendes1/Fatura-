@@ -47,31 +47,72 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="router.php?c=user&a=index">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
-                        </li>
+
+                        <?php
+                        if(isset($_SESSION['id'])){
+                            if($user->role == 'Cliente'){?>
+
+                                <li class="nav-item">
+                                    <a class="nav-link diabled">Cliente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
+                                </li>
+                            <?php 
+                            }
+                            else if($user->role == 'Administrador'){?>
+                                <li class="nav-item">
+                                    <a class="nav-link diabled">Menu Administrador</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=user&a=index">Users</a>
+                                </li>
+                            <?php
+                            }
+                            else if($user->role == 'Funcionario'){?>
+                                <li class="nav-item">
+                                    <a class="nav-link diabled">Menu Funcionário</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=fatura&a=index">Gestão IVA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=user&a=create">Novo Cliente</a>
+                                </li>             
+                            <?php 
+                            }
+                        } 
+                        else{
+                            echo('Tem de ter a sua sessão ligada!');
+                        }?>
                         <!--
                         <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
                         </li>
-    -->
+                        -->
                     </ul>
+                    <a href="router.php?c=user&a=show&id=<?=$user->id ?>"><button type="submit" class="btn btn-secondary">Perfil</button></a>
+                        
                     <form class="d-flex">
+                    <?php
+                        if(isset($_SESSION['id'])){?>
                         <form action="./router.php?c=auth&a=logout" method="POST">
                             <button type="submit" class="btn btn-secondary">Logout</button>
                         </form>
+                        <?php }else{ ?>
+                            <form action="./router.php?c=auth&a=login" method="POST">
+                            <button type="submit" class="btn btn-secondary">Login</button>
+                        </form>             
+                        <?php } ?> 
                     </form>
                 </div>
             </div>
