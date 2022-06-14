@@ -58,6 +58,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
+                                </li>
                             <?php 
                             }
                             else if($user->role == 'Administrador'){?>

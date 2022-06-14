@@ -10,14 +10,14 @@ class FaturaController extends BaseController{
         $auth = new Auth();
         $user = $auth->getUser();
         
-        if($user->role!='Administrador' && $user->role!='Funcionario'){
-            echo('Não tem permissões!');
-        } else {
-            $faturas = Fatura::all();
+        if($user->role == 'Cliente'){
+            $faturas_cliente = Fatura::find_all_by_cliente_id($user->id);
+            $this->renderView('fatura','index', ['faturas' => $faturas_cliente]);
+        } 
+        $faturas = Fatura::all();
 
-            //mostrar a vista index passando os dados por parâmetro
-            $this->renderView('fatura','index', ['faturas' => $faturas]);
-        }
+        //mostrar a vista index passando os dados por parâmetro
+        $this->renderView('fatura','index', ['faturas' => $faturas]);
     }
 
     public function show($id)
