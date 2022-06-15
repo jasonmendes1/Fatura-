@@ -9,4 +9,8 @@ class Faturalinha extends \ActiveRecord\Model
         array('fatura_id'),
         array('produto_id')
     );
+    static $belongs_to = array(
+        array('fatura'),
+        array('produto'),
+    );
 }

@@ -49,9 +49,8 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
                         <?php
-                        if(isset($_SESSION['id'])){
+                        if($user!=null){
                             if($user->role == 'Cliente'){?>
-
                                 <li class="nav-item">
                                     <a class="nav-link diabled">Cliente</a>
                                 </li>
@@ -83,7 +82,11 @@
                                     <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="router.php?c=user&a=create">Novo Cliente</a>
+                                    <a class="nav-link" href="router.php?c=user&a=indexfuncionarios">Funcionários</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=user&a=create">Novo Funcionário
+                                </a>
                             <?php
                             }
                             else if($user->role == 'Funcionario'){?>
@@ -103,11 +106,13 @@
                                     <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=user&a=indexclientes">Clientes</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="router.php?c=user&a=create">Novo Cliente</a>
                                 </li>             
                             <?php 
-                            }
-                        } 
+                            } 
                         else{
                             echo('Tem de ter a sua sessão ligada!');
                         }?>
@@ -117,19 +122,18 @@
                         </li>
                         -->
                     </ul>
-                    <a href="router.php?c=user&a=show&id=<?=$user->id ?>"><button type="submit" class="btn btn-secondary">Perfil</button></a>
-                        
+                    <?php                             
+                        if($user->role != 'Cliente'){?>
+                            <a href="router.php?c=user&a=show&id=<?=$user->id ?>"><button type="submit" class="btn btn-secondary">Perfil</button></a>
+                    <?php } ?>
                     <form class="d-flex">
                     <?php
                         if(isset($_SESSION['id'])){?>
-                        <form action="./router.php?c=auth&a=logout" method="POST">
-                            <button type="submit" class="btn btn-secondary">Logout</button>
-                        </form>
+                            <a href="./router.php?c=auth&a=logout" class="btn btn-secondary">Logout</a>
                         <?php }else{ ?>
-                            <form action="./router.php?c=auth&a=login" method="POST">
-                            <button type="submit" class="btn btn-secondary">Login</button>
-                        </form>             
-                        <?php } ?> 
+                            <a href="./router.php?c=auth&a=login" class="btn btn-secondary">Login</a>
+                        <?php }                         
+                    }?> 
                     </form>
                 </div>
             </div>

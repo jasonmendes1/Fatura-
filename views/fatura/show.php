@@ -39,8 +39,8 @@
                 <p><th>Valor total: <?= $fatura->valortotal ?></th></p>
                 <p><th>Iva Total: <?= $fatura->ivatotal ?></th></p>
                 <p><th>Estado: <?= $fatura->estado ?></th></p>
-                <p><th>Cliente: <?= $fatura->cliente_id ?></th></p> <!-- //TODO Não dá para fazer $fatura->cliente_id->username -->
-                <p><th>Funcionário: <?= $fatura->func_id ?></th></p> <!-- //TODO Não dá para fazer $fatura->func_id->user->username -->
+                <p><th>Cliente: <?= $fatura->cliente->username ?></th></p> <!-- //TODO Não dá para fazer $fatura->cliente_id->username -->
+                <p><th>Funcionário: <?= $fatura->func->username ?></th></p> <!-- //TODO Não dá para fazer $fatura->func_id->user->username -->
                 <a href="router.php?c=fatura&a=edit&id=<?=$fatura->id ?>" class="btn btn-success" role="button">Edit</a>
                 <a href="router.php?c=fatura&a=delete&id=<?=$fatura->id ?>" class="btn btn-danger" role="button">Delete</a>
                 <hr></hr>
@@ -52,20 +52,20 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID Fatura Linha</th>
-                    <th>Referencia Produto</th>
+                    <th>Referência</th>
                     <th>Quantidade</th>
+                    <th>Preço Unidade</th>
                     <th>IVA</th>
-                    <th>Valor</th>
+                    <th>SubTotal</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($faturalinhas as $faturalinha) { ?>
                     <tr>
-                        <td><?= $faturalinha->id ?></td>
-                        <td><?= $faturalinha->produto_id ?></td> <!-- //TODO Mesmo problema de não conseguir buscar modelo associado -->
+                        <td><?= $faturalinha->produto->referencia ?></td> <!-- //TODO Mesmo problema de não conseguir buscar modelo associado -->
                         <td><?= $faturalinha->quantidade ?></td>
-                        <td><?= $faturalinha->valoriva ?></td>
+                        <td><?= $faturalinha->produto->preco ?>€</td> <!-- //TODO Mesmo problema de não conseguir buscar modelo associado -->
+                        <td><?= $faturalinha->valoriva ?>%</td>
                         <td><?= $faturalinha->valor ?></td>
                     </tr>
                 <?php } ?>

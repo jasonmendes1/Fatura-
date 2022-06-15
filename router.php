@@ -142,6 +142,12 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'index':
                     $user->index();
                     break;
+                case 'indexfuncionarios':
+                    $user->indexfuncionarios();
+                    break;
+                case 'indexclientes':
+                    $user->indexclientes();
+                    break;
                 case 'show':
                     $id = $_GET['id'];
                     $user->show($id);

@@ -8,8 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <script src="public/js/table_users.js"></script>
-    <link rel="stylesheet" href="public/css/table_users.css">
+    <script src="public/js/table_searches.js"></script>
+    <link rel="stylesheet" href="public/css/table_searches.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <h2>Produtos</h2>
         <p>Lista de produtos da <i>Fatura+</i></p>
         <table class="table table-hover" id="myTable">
-            <input class="form-control" id="myInput" onkeyup="myFunction()" type="text" placeholder="Referência do Produto...">
+            <input class="form-control" id="myInput" onkeyup="myFunctionProduto()" type="text" placeholder="Referência do Produto...">
             <thead>
                 <tr>
                     <th>Referencia</th>

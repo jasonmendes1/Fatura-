@@ -12,6 +12,22 @@ class UserController extends BaseController{
         $this->renderView('user','index', ['users' => $users]);
     }
 
+    public function indexfuncionarios()
+    {
+        $users = User::find_all_by_role('Funcionario');
+
+        //mostrar a vista index passando os dados por parâmetro
+        $this->renderView('user','index', ['users' => $users]);
+    }
+
+    public function indexclientes()
+    {
+        $users = User::find_all_by_role('Cliente');
+
+        //mostrar a vista index passando os dados por parâmetro
+        $this->renderView('user','index', ['users' => $users]);
+    }
+
     public function show($id)
     {
         $user = User::find([$id]);

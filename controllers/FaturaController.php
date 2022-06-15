@@ -24,6 +24,7 @@ class FaturaController extends BaseController{
     {
         $auth = new Auth();
         $user = $auth->getUser();
+        $empresa = Empresa::find([1]);
         
         if($user->role!='Administrador' && $user->role!='Funcionario'){
             echo('Não tem permissões!');
@@ -33,7 +34,7 @@ class FaturaController extends BaseController{
             if (is_null($fatura)) {
                 echo('Erro!');
             } else {
-                $this->renderView('fatura','show', ['fatura' => $fatura, 'faturalinhas' => $faturalinhas]);
+                $this->renderView('fatura','show', ['fatura' => $fatura, 'faturalinhas' => $faturalinhas, 'empresa' => $empresa]);
             }
         }
     }

@@ -12,7 +12,7 @@ class Auth
     {
         $user = User::find_by_username_and_password($username, $password);
         
-        if ($user) {
+        if ($user!=null) {
             $_SESSION['id'] = $user->id;
             return true;
         } else {

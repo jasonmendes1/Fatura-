@@ -47,7 +47,6 @@
                     <th>Valor IVA</th>
                     <th>Fatura</th>
                     <th>Produto</th>
-                    <?= $produtolinhaid?> <!-- //TODO Passar o ID do Produto selecionado para esta view -->
                     <th></th>
                 </tr>
             </thead>

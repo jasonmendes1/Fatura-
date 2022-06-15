@@ -4,19 +4,15 @@ class BaseController
 {
     public function renderView($controllerPrefix, $viewName, $params = []) {
         extract($params);
-
-        if(session_status() != PHP_SESSION_ACTIVE){
-            session_start(); # //TODO Perde a sessão cada vez que entra neste controller
-        }
-
-        if (isset($_GET['c'])){
-            $controller = $_GET['c'];
-        }
         
-        $empresa = Empresa::find([1]);
+        # if(session_status() != PHP_SESSION_ACTIVE){
+        #    session_start(); # //TODO Perde a sessão , não entra no if (isset($_SESSION))
+        #}
+        # $empresa = Empresa::find([1]); //TODO Meter no controller fatura
 
-        if(isset($_SESSION['id'])){
-            $auth = new Auth();
+        $auth = new Auth();
+        $user = null;
+        if($auth->isLoggedin()){
             $user = $auth->getUser();
         }
 

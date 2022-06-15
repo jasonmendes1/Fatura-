@@ -9,4 +9,7 @@ class Produto extends \ActiveRecord\Model
         array('stock'),
         array('iva_id')
     );
+    #static $has_many = array(
+    #    array('fatura'),
+    #);   
 }
