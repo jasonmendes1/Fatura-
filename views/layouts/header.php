@@ -70,6 +70,20 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="router.php?c=user&a=index">Users</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=produto&a=index">Produtos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=fatura&a=index">Faturas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=fatura&a=index">Gestão IVA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=empresa&a=index">Empresas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=user&a=create">Novo Cliente</a>
                             <?php
                             }
                             else if($user->role == 'Funcionario'){?>

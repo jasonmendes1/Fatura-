@@ -23,6 +23,9 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'index':
                     $auth->index();
                     break;
+                case 'indexerror':
+                    $auth->indexerror();
+                    break;
                 case 'login':
                     $auth->login();
                     break;

@@ -19,17 +19,23 @@ class AuthController extends BaseController
 
             if($user->role == 'Cliente'){
                 $this->redirectToRoute('produto', 'index');
-            } else 
-            if($user->role == 'Funcionario'){
+            } elseif($user->role == 'Funcionario'){
                 $this->redirectToRoute('produto', 'index');
-            } else
-            if($user->role == 'Administrador'){
+            } elseif($user->role == 'Administrador'){
                 $this->redirectToRoute('user', 'index');
             } else {
             $this->redirectToRoute('auth', 'index');
             }
+        } else{
+            $this->redirectToRoute('auth', 'indexerror');
         }
     }
+
+    public function indexerror()
+    {            
+        $this->renderView('auth', 'indexerror');
+    }
+
 
     public function logout()
     {
