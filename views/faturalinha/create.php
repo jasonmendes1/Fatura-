@@ -16,26 +16,6 @@
     <br>
     <hr>
     <div class="container">
-        <!-- //TODO: Informacao faturas(idfatura, data, idcliente.) -->
-            <h2><b>Empresa: </b></h2>
-            <div class="row">
-                <div class="col-sm-3">
-                    <p>Designação Social: <?= $empresa->designacaosocial ?>
-                    <p>Email: <?= $empresa->email ?>
-                    <p>Telefone: <?= $empresa->telefone ?>
-                    <p>Localidade: <?= $empresa->localidade ?>
-                </div>
-                <div class="col-sm-3">
-                    <p>NIF: <?= $empresa->nif ?>
-                    <p>Morada: <?= $empresa->morada ?>
-                    <p>Código Postal: <?= $empresa->codigopostal ?>
-                    <p>Capital Social: <?= $empresa->capitalsocial ?>
-                </div>
-
-        </div><hr>
-
-        <h3><b>Cliente: </b><?= $empresa->email ?></h3>
-        <p>Data de Emissão da fatura: <?= $empresa->email ?></p>
         <a href="router.php?c=fatura&a=selectproduto" class="btn btn-info" role="button">Selecionar Produto</a><br><br>
         <h2>Faturas</h2>
         <p>Lista de Faturas da <i>Fatura+</i></p>

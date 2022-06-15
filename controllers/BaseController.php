@@ -21,11 +21,12 @@ class BaseController
         require_once 'views/layouts/footer.php';
     }
 
-    public function redirectToRoute($controllerPrefix, $action, $params = []){
+    public function redirectToRoute($controllerPrefix, $action, $params = [] ){
         $url = 'Location: router.php?c='.$controllerPrefix.'&a='.$action;
         foreach ($params as $paramKey => $paramValue){
             $url.='&'.$paramKey.'='.$paramValue;
         }
         header($url);
     }
+
 }

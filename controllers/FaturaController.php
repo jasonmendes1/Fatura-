@@ -60,7 +60,7 @@ class FaturaController extends BaseController{
                 $fatura->func_id = $user->id;
 
                 $fatura->save();
-                $this->redirectToRoute('faturalinha','create', ['idfatura' => $fatura->id]);
+                $this->redirectToRoute('fatura','show', ['id' => $fatura->id]);
             }
 
             $this->renderView('fatura','create', ['user' => $idcliente]);
@@ -70,11 +70,6 @@ class FaturaController extends BaseController{
     public function selectcliente(){
         $clientes = User::find_all_by_role('Cliente');
         $this->renderView('fatura','selectcliente', ['clientes' => $clientes]);
-    }
-    
-    public function selectproduto(){
-        $produtos = Produto::all();
-        $this->renderView('faturalinha','selectproduto', ['produtos' => $produtos]);
     }
 
     public function store()

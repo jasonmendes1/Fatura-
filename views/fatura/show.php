@@ -39,8 +39,8 @@
                 <p><th>Valor total: <?= $fatura->valortotal ?></th></p>
                 <p><th>Iva Total: <?= $fatura->ivatotal ?></th></p>
                 <p><th>Estado: <?= $fatura->estado ?></th></p>
-                <p><th>Cliente: <?= $fatura->cliente->username ?></th></p> <!-- //TODO Não dá para fazer $fatura->cliente_id->username -->
-                <p><th>Funcionário: <?= $fatura->func->username ?></th></p> <!-- //TODO Não dá para fazer $fatura->func_id->user->username -->
+                <p><th>Cliente: <?= $fatura->cliente->username ?></th></p>
+                <p><th>Funcionário: <?= $fatura->func->username ?></th></p>
                 <a href="router.php?c=fatura&a=edit&id=<?=$fatura->id ?>" class="btn btn-success" role="button">Edit</a>
                 <a href="router.php?c=fatura&a=delete&id=<?=$fatura->id ?>" class="btn btn-danger" role="button">Delete</a>
                 <hr></hr>
@@ -62,14 +62,15 @@
             <tbody>
                 <?php foreach ($faturalinhas as $faturalinha) { ?>
                     <tr>
-                        <td><?= $faturalinha->produto->referencia ?></td> <!-- //TODO Mesmo problema de não conseguir buscar modelo associado -->
+                        <td><?= $faturalinha->produto->referencia ?></td>
                         <td><?= $faturalinha->quantidade ?></td>
-                        <td><?= $faturalinha->produto->preco ?>€</td> <!-- //TODO Mesmo problema de não conseguir buscar modelo associado -->
+                        <td><?= $faturalinha->produto->preco ?>€</td>
                         <td><?= $faturalinha->valoriva ?>%</td>
                         <td><?= $faturalinha->valor ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
+        <a href="router.php?c=faturalinha&a=selectproduto" class="btn btn-info" role="button">Selecionar Produto</a><br><br>
     </div>
 </body>

@@ -62,7 +62,7 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div> <!-- form-group end.// -->
                 <div class="register">
-                    <small>Click <a href="./router.php?c=user&a=create">here</a> to create an account!</small>
+                    <small>Para obter uma conta fale com um <b>funcionário</b>.</small> // TODO Fazer uma lista de funcionários com email
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block"> Login </button>

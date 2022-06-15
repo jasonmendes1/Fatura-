@@ -28,20 +28,26 @@ class FaturalinhaController extends BaseController{
             $this->renderView('faturalinha', 'create');
         } else {
             $faturalinha = new FaturaLinha();
-            # $faturalinha->quantidade = 0;
-            # $faturalinha->valor = 0;
+            $faturalinha->quantidade = 0;
+            $faturalinha->valor = 0;
+            $faturalinha->valoriva = 0;
             $faturalinha->fatura_id = $idfatura;
             $faturalinha->produto_id = $idproduto;
-
-            $produtolinhaid = $idproduto;
-            $faturalinhaid = $idfatura;
+            var_dump($idfatura);
+            die();
 
 
             $faturalinha->save();
-            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id, 'produto' => $produtolinhaid]);
+            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id]);
         }
 
         $this->renderView('faturalinha','create', ['fatura' => $idfatura, 'produto' => $idproduto]);
+    }
+        
+    public function selectproduto($idfatura){
+        $produtos = Produto::all();
+        $id = $idfatura;
+        $this->renderView('faturalinha','selectproduto', ['produtos' => $produtos, 'id' => $idfatura]);
     }
 
     public function store()

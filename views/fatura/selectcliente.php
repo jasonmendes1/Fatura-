@@ -20,8 +20,8 @@
     <br>
     <br>
     <hr>
-        <h2>Utilizadores</h2>
-        <p>Lista de Utilizadores da <i>Fatura+</i></p>
+        <h2>Clientes</h2>
+        <p>Lista de Clientes da <i>Fatura+</i></p>
         <table class="table table-hover" id="myTable">
             <input class="form-control" id="myInput" onkeyup="myFunction()" type="text" placeholder="Nome do cliente...">
             <thead>

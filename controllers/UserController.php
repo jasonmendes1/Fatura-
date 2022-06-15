@@ -41,6 +41,7 @@ class UserController extends BaseController{
     public function create()
     {        
         //mostrar a vista create
+        $user = null;
         $this->renderView('user','create');
     }
 

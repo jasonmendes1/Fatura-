@@ -22,6 +22,7 @@
             <input class="form-control" id="myInput" onkeyup="myFunctionProduto()" type="text" placeholder="Referência do Produto...">
             <thead>
                 <tr>
+                    <th><?=$idfatura?></th>
                     <th>Referencia</th>
                     <th>Descrição</th>
                     <th>Preço</th>
@@ -38,7 +39,7 @@
                         <td><?= $produto->preco ?></td>
                         <td><?= $produto->stock ?></td>
                         <td><?= $produto->iva_id ?></td>
-                        <td><a href="router.php?c=faturalinha&a=create&idproduto=<?=$produto->id ?>">Selecionar</a></td>
+                        <td><a href="router.php?c=faturalinha&a=create&idproduto=<?=$produto->id ?>&idfatura=<?= $id ?>">Selecionar</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

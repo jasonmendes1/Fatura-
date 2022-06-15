@@ -70,10 +70,7 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     break;
                 case 'selectcliente':
                     $fatura->selectcliente();
-                    break;
-                case 'selectproduto':
-                    $fatura->selectproduto();
-                    break;      
+                    break;  
             }
         break;
         case 'produto':
@@ -182,8 +179,22 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $id = $_GET['id'];
                     $faturalinha->show($id);
                     break;
+                case 'selectproduto':
+                    if(isset($_GET['idfatura'])){
+                        $idfatura = $_GET['idfatura'];                                    
+                        }
+                        else{
+                            $idfatura = null;
+                        }
+                    $faturalinha->selectproduto($idfatura);
+                    break;    
                 case 'create':
-                    $idfatura = $_GET['idfatura'];
+                    if(isset($_GET['idfatura'])){
+                        $idfatura = $_GET['idfatura'];                                    
+                        }
+                        else{
+                            $idfatura = null;
+                        }
                     if(isset($_GET['idproduto'])){
                         $idproduto = $_GET['idproduto'];                                    
                         }
