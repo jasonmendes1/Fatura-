@@ -31,14 +31,11 @@ class FaturalinhaController extends BaseController{
             $faturalinha->quantidade = 0;
             $faturalinha->valor = 0;
             $faturalinha->valoriva = 0;
-            $faturalinha->fatura_id = $idfatura;
+            $faturalinha->fatura_id = 5;
             $faturalinha->produto_id = $idproduto;
-            var_dump($idfatura);
-            die();
-
 
             $faturalinha->save();
-            $this->redirectToRoute('faturalinha','create', ['idfaturalinha' => $faturalinha->id]);
+            $this->redirectToRoute('fatura','index', ['idfaturalinha' => $faturalinha->id]);
         }
 
         $this->renderView('faturalinha','create', ['fatura' => $idfatura, 'produto' => $idproduto]);
@@ -80,7 +77,7 @@ class FaturalinhaController extends BaseController{
         $faturalinha->update_attributes($_POST);
         if($faturalinha->is_valid()){
             $faturalinha->save();
-            $this->redirectToRoute('faturalinha','index');
+            $this->redirectToRoute('faturas','index');
             //redirecionar para o index
         } else {
             //mostrar vista edit passando o modelo como parâmetro
@@ -93,7 +90,7 @@ class FaturalinhaController extends BaseController{
         $faturalinha = FaturaLinha::find([$id]);
         $faturalinha->delete();
         //redirecionar para o index
-        $this->redirectToRoute('faturalinha','index');
+        $this->redirectToRoute('fatura','index');
     }
 
 }

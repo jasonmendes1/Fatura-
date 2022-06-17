@@ -14,31 +14,26 @@
     <br>
     <hr>
     <div class="container">
-        <h2>Produtos</h2>
+        <h2>Percentagem de Ivas</h2>
         <p>Lista de produtos da <i>Fatura+</i></p>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Referencia</th>
+                    <th>Percentagem</th>
                     <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Stock</th>
-                    <th>Iva</th>
+                    <th>Vigor</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($produtos as $produto) { ?>
+                <?php foreach ($ivas as $iva) { ?>
                     <tr>
-                        <td><a href="router.php?c=produto&a=show&id=<?=$produto->id ?>"><?= $produto->referencia ?></a></td>
-                        <td><?= $produto->descricao ?></td>
-                        <td><?= $produto->preco ?></td>
-                        <td><?= $produto->stock ?></td>
-                        <td><?= $produto->iva->descricao ?></td>
+                        <td><a href="router.php?c=iva&a=show&id=<?=$iva->id ?>"><?= $iva->percentagem ?>%</a></td>
+                        <td><?= $iva->descricao ?></td>
+                        <td><?= $iva->vigor ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
-        <td><a href="router.php?c=produto&a=create" class="btn btn-info" role="button">Criar</a></td>
     </div>
 </body>

@@ -22,14 +22,13 @@
             <input class="form-control" id="myInput" onkeyup="myFunctionProduto()" type="text" placeholder="Referência do Produto...">
             <thead>
                 <tr>
-                    <th><?=$idfatura?></th>
                     <th>Referencia</th>
                     <th>Descrição</th>
                     <th>Preço</th>
                     <th>Stock</th>
                     <th>Iva</th>
                     <th></th>
-                </tr>
+                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($produtos as $produto) { ?>

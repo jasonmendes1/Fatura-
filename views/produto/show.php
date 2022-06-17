@@ -19,30 +19,35 @@
     <hr>
     <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center"><?=$produto->referencia?></h4>
+        Referência:
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-hashtag"></i> </span>
             </div>
             <input readonly name="referencia" id="referencia" value="<?php if(isset($produto)) { echo $produto->referencia; }?>" class="form-control" placeholder="Referencia" type="text">
         </div> <!-- form-group// -->
+        Descrição:
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-hashtag"></i> </span>
             </div>
             <input readonly name="descricao" value="<?php if(isset($produto)) { echo $produto->descricao; }?>" class="form-control" placeholder="Descricao" type="text">
         </div> <!-- form-group// -->
+        Preço:
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-dollar-sign"></i> </span>
             </div>
             <input readonly name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }?>" class="form-control" placeholder="Preco" type="text">
         </div> <!-- form-group// -->
+        Stock:
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-home"></i> </span>
             </div>
             <input readonly name="stock" value="<?php if(isset($produto)) { echo $produto->stock; }?>" class="form-control" placeholder="Stock" type="text">
         </div> <!-- form-group// -->
+        IVA:
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-home"></i> </span>

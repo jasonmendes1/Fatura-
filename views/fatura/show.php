@@ -33,19 +33,36 @@
 
         </div><hr>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <h4>Fatura: <?= $fatura->id ?></h4>
                 <p><th>Data: <?= $fatura->data ?></th></p>
                 <p><th>Valor total: <?= $fatura->valortotal ?></th></p>
                 <p><th>Iva Total: <?= $fatura->ivatotal ?></th></p>
-                <p><th>Estado: <?= $fatura->estado ?></th></p>
+                <?php                             
+                if($fatura->estado == 'Cancelada'){?>
+                    <p style="color:red"><th>Estado: <?= $fatura->estado ?></th></p>
+                <?php } ?>
+                <?php                             
+                if($fatura->estado == 'Emitida'){?>
+                    <p style="color:green"><th>Estado: <?= $fatura->estado ?></th></p>
+                <?php } ?>
+                <?php                             
+                if($fatura->estado == 'Em Lancamento'){?>
+                    <p><th>Estado: <?= $fatura->estado ?></th></p>
+                <?php } ?>
                 <p><th>Cliente: <?= $fatura->cliente->username ?></th></p>
                 <p><th>Funcionário: <?= $fatura->func->username ?></th></p>
-                <a href="router.php?c=fatura&a=edit&id=<?=$fatura->id ?>" class="btn btn-success" role="button">Edit</a>
-                <a href="router.php?c=fatura&a=delete&id=<?=$fatura->id ?>" class="btn btn-danger" role="button">Delete</a>
+
                 <hr></hr>
+                <?php if($user->role == 'Funcionario' || $user->role == 'Administrador'){?>
+                <a href="router.php?c=fatura&a=cancelarfatura&id=<?=$fatura->id ?>" class="btn btn-danger" role="button">Cancelar</a>
+                <a href="router.php?c=fatura&a=lancamentofatura&id=<?=$fatura->id ?>" class="btn btn-secondary" role="button">Em Lancamento</a>
+                <a href="router.php?c=fatura&a=emitirfatura&id=<?=$fatura->id ?>" class="btn btn-success" role="button">Emitir</a>
+                <?php }?>
+
             </div>
         </div>
+        <br>
         <div class="col-sm-6">
             <h4>Produtos:</h4>
         </div>
@@ -57,6 +74,10 @@
                     <th>Preço Unidade</th>
                     <th>IVA</th>
                     <th>SubTotal</th>
+                    <?php                             
+                        if($fatura->estado == 'Em Lancamento'){?>
+                            <th>Ação</th>
+                    <?php } ?>
                 </tr>
             </thead>
             <tbody>
@@ -67,10 +88,22 @@
                         <td><?= $faturalinha->produto->preco ?>€</td>
                         <td><?= $faturalinha->valoriva ?>%</td>
                         <td><?= $faturalinha->valor ?></td>
+                        <?php                             
+                        if($fatura->estado == 'Em Lancamento'){?>
+                            <td>
+                                <a href="./router.php?c=faturalinha&a=edit&id=<?=$faturalinha->id ?>"
+                                class="btn btn-info" role="button">Edit</a>
+                                <a href="./router.php?c=faturalinha&a=delete&id=<?=$faturalinha->id ?>"
+                                class="btn btn-danger" role="button">Delete</a>
+                            </td>                        
+                        <?php } ?>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
-        <a href="router.php?c=faturalinha&a=selectproduto" class="btn btn-info" role="button">Selecionar Produto</a><br><br>
+        <?php                             
+            if($fatura->estado == 'Em Lancamento'){?>
+                <a href="router.php?c=faturalinha&a=selectproduto" class="btn btn-info" role="button">Selecionar Produto</a><br><br>
+        <?php } ?>
     </div>
 </body>

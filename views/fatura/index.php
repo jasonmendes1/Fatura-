@@ -30,17 +30,39 @@
             </thead>
             <tbody>
                 <?php foreach ($faturas as $fatura) { ?>
-                    <tr>
+                    <?php if($fatura->estado == 'Cancelada'){?>
+                    <tr style="color:red">
                         <td><a href="router.php?c=fatura&a=show&id=<?=$fatura->id ?>"><?= $fatura->id ?></a></td>
                         <td><?= $fatura->data ?></td>
                         <td><?= $fatura->valortotal ?></td>
                         <td><?= $fatura->ivatotal ?></td>
                         <td><?= $fatura->estado ?></td>
-                        <td><?= $fatura->cliente_id ?></td>
-                        <td><?= $fatura->func_id ?></td>
+                        <td><?= $fatura->cliente->username ?></td>
+                        <td><?= $fatura->func->username ?></td>
                     </tr>
+                    <?php } else if($fatura->estado == 'Emitida') { ?>
+                    <tr style="color:green">
+                        <td><a href="router.php?c=fatura&a=show&id=<?=$fatura->id ?>"><?= $fatura->id ?></a></td>
+                        <td><?= $fatura->data ?></td>
+                        <td><?= $fatura->valortotal ?></td>
+                        <td><?= $fatura->ivatotal ?></td>
+                        <td><?= $fatura->estado ?></td>
+                        <td><?= $fatura->cliente->username ?></td>
+                        <td><?= $fatura->func->username ?></td>
+                    </tr>
+                    <?php } else { ?>
+                        <tr>
+                        <td><a href="router.php?c=fatura&a=show&id=<?=$fatura->id ?>"><?= $fatura->id ?></a></td>
+                        <td><?= $fatura->data ?></td>
+                        <td><?= $fatura->valortotal ?></td>
+                        <td><?= $fatura->ivatotal ?></td>
+                        <td><?= $fatura->estado ?></td>
+                        <td><?= $fatura->cliente->username ?></td>
+                        <td><?= $fatura->func->username ?></td>
+                    </tr>
+                    <?php } ?>
                 <?php } ?>
-            </tbody>
+        </tbody>
         </table>
     </div>
     <div class="col-sm-6">

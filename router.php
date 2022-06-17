@@ -5,7 +5,9 @@ require_once 'controllers/FaturaController.php';
 require_once 'controllers/ProdutoController.php';
 require_once 'controllers/EmpresaController.php';
 require_once 'controllers/UserController.php';
+require_once 'controllers/IvaController.php';
 require_once 'controllers/FaturalinhaController.php';
+require_once 'controllers/SiteController.php';
 
 
 if(!(isset($_GET['c']) AND isset($_GET['a']))){
@@ -71,6 +73,18 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'selectcliente':
                     $fatura->selectcliente();
                     break;  
+                case 'cancelarfatura':
+                    $id = $_GET['id'];
+                    $fatura->cancelarfatura($id);
+                    break;
+                case 'emitirfatura':
+                    $id = $_GET['id'];
+                    $fatura->emitirfatura($id);
+                    break;
+                case 'lancamentofatura':
+                    $id = $_GET['id'];
+                    $fatura->lancamentofatura($id);
+                    break;
             }
         break;
         case 'produto':
@@ -218,6 +232,37 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                     $id = $_GET['id'];
                     $faturalinha->delete($id);
                     break;  
+            }
+        break;
+        case 'iva':
+            $iva = new IvaController();
+            switch ($action) {
+                case 'index':
+                    $iva->index();
+                    break;
+                case 'show':
+                    $id = $_GET['id'];
+                    $iva->show($id);
+                    break;
+                case 'store':
+                    $iva->store();
+                    break;
+                case 'edit':
+                    $id = $_GET['id'];
+                    $iva->edit($id);
+                    break;
+                case 'update':
+                    $id = $_GET['id'];
+                    $iva->update($id);
+                    break;            
+            }
+        break;
+        case 'site':
+            $site = new SiteController();
+            switch ($action) {
+                case 'index':
+                    $site->index();
+                    break;      
             }
         break;
     }

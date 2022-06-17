@@ -51,7 +51,7 @@
                 <select class="form-control" id="select_produto" name="iva_id">
                                 <?php foreach ($ivas as $iva) { ?>
                                     <option value="<?=$iva->id?>">
-                                    <?= $iva->referencia ?>
+                                    <?= $iva->descricao ?>
                                     </option>
                                 <?php } ?>
                             </select>

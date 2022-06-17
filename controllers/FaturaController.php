@@ -26,16 +26,12 @@ class FaturaController extends BaseController{
         $user = $auth->getUser();
         $empresa = Empresa::find([1]);
         
-        if($user->role!='Administrador' && $user->role!='Funcionario'){
-            echo('Não tem permissões!');
+        $fatura = Fatura::find([$id]);
+        $faturalinhas = Faturalinha::find_all_by_fatura_id($id);
+        if (is_null($fatura)) {
+            echo('Erro!');
         } else {
-            $fatura = Fatura::find([$id]);
-            $faturalinhas = Faturalinha::find_all_by_fatura_id($id);
-            if (is_null($fatura)) {
-                echo('Erro!');
-            } else {
-                $this->renderView('fatura','show', ['fatura' => $fatura, 'faturalinhas' => $faturalinhas, 'empresa' => $empresa]);
-            }
+            $this->renderView('fatura','show', ['fatura' => $fatura, 'faturalinhas' => $faturalinhas, 'empresa' => $empresa]);
         }
     }
 
@@ -55,7 +51,7 @@ class FaturaController extends BaseController{
                 
                 $fatura->valortotal = 0;
                 $fatura->ivatotal = 0;
-                $fatura->estado = 'Em Lançamento';
+                $fatura->estado = 'Em Lancamento';
                 $fatura->cliente_id = $idcliente;
                 $fatura->func_id = $user->id;
 
@@ -71,6 +67,7 @@ class FaturaController extends BaseController{
         $clientes = User::find_all_by_role('Cliente');
         $this->renderView('fatura','selectcliente', ['clientes' => $clientes]);
     }
+    
 
     public function store()
     {
@@ -106,6 +103,33 @@ class FaturaController extends BaseController{
                 $this->renderView('fatura','edit', ['fatura' => $fatura]);
             }
         }
+    }
+
+    public function cancelarfatura($id)
+    {
+        $fatura = Fatura::find([$id]);
+        $fatura->estado = 'Cancelada';
+        $fatura->save();
+        //redirecionar para o index
+        $this->redirectToRoute('fatura','show', ['id' => $fatura->id]);
+    }
+
+    public function emitirfatura($id)
+    {
+        $fatura = Fatura::find([$id]);
+        $fatura->estado = 'Emitida';
+        $fatura->save();
+        //redirecionar para o index
+        $this->redirectToRoute('fatura','show', ['id' => $fatura->id]);
+    }
+
+    public function lancamentofatura($id)
+    {
+        $fatura = Fatura::find([$id]);
+        $fatura->estado = 'Em Lancamento';
+        $fatura->save();
+        //redirecionar para o index
+        $this->redirectToRoute('fatura','show', ['id' => $fatura->id]);
     }
 
     public function update($id)
