@@ -8,6 +8,7 @@ require_once 'controllers/UserController.php';
 require_once 'controllers/IvaController.php';
 require_once 'controllers/FaturalinhaController.php';
 require_once 'controllers/SiteController.php';
+require_once 'controllers/TaskController.php';
 
 
 if(!(isset($_GET['c']) AND isset($_GET['a']))){
@@ -263,6 +264,32 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'index':
                     $site->index();
                     break;      
+            }
+        break;
+        case 'task':
+            $task = new TaskController();
+            switch ($action) {
+                case 'index':
+                    $task->index();
+                    break;
+                case 'create':
+                    $task->create();
+                    break;
+                case 'show':
+                    $id = $_GET['id'];
+                    $task->show($id);
+                    break;
+                case 'store':
+                    $task->store();
+                    break;
+                case 'edit':
+                    $id = $_GET['id'];
+                    $task->edit($id);
+                    break;
+                case 'update':
+                    $id = $_GET['id'];
+                    $task->update($id);
+                    break;            
             }
         break;
     }
