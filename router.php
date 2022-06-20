@@ -289,7 +289,15 @@ if(!(isset($_GET['c']) AND isset($_GET['a']))){
                 case 'update':
                     $id = $_GET['id'];
                     $task->update($id);
-                    break;            
+                    break;         
+                case 'task_done':
+                    $id = $_GET['id'];
+                    $task->task_done($id);
+                    break;   
+                case 'task_undone':
+                    $id = $_GET['id'];
+                    $task->task_undone($id);
+                    break;   
             }
         break;
     }

@@ -64,4 +64,20 @@ class TaskController extends BaseController{
             $this->renderView('task', 'edit', ['task' => $task]);
         }
     }
+
+    public function task_done($id)
+    {
+        $task = Task::find([$id]);
+        $task->done = 'Yes';
+        $task->save();
+        $this->redirectToRoute('task','index');
+    }
+
+    public function task_undone($id)
+    {
+        $task = Task::find([$id]);
+        $task->done = 'No';
+        $task->save();
+        $this->redirectToRoute('task','index');
+    }
 }

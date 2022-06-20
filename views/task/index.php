@@ -28,14 +28,17 @@
                     <?php if($task->done == 'Yes'){ ?>
                     <tr>
                         <td style="color:grey"><s><?= $task->description ?></s></td>
+                        <td><a href="router.php?c=task&a=task_undone&id=<?=$task->id ?>" class="btn btn-secondary" role="button">Undone</a></td>
                     </tr>
                     <?php } else { ?>
                     <tr>
                         <td><?= $task->description ?></td>
+                        <td><a href="router.php?c=task&a=task_done&id=<?=$task->id ?>" class="btn btn-success" role="button">Done</a></td>
                     </tr>
                     <?php } ?>
                 <?php } ?>
             </tbody>
         </table>
+        <td><a href="router.php?c=task&a=create" class="btn btn-info" role="button">Criar Tarefa</a></td>
     </div>
 </body>
