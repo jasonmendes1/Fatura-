@@ -21,6 +21,7 @@
                 <tr>
                     <th>Descrição</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -28,17 +29,42 @@
                     <?php if($task->done == 'Yes'){ ?>
                     <tr>
                         <td style="color:grey"><s><?= $task->description ?></s></td>
-                        <td><a href="router.php?c=task&a=task_undone&id=<?=$task->id ?>" class="btn btn-secondary" role="button">Undone</a></td>
+                        <?php if($user->role == 'Administrador'){ ?>
+                            <td><a href="router.php?c=task&a=task_undone&id=<?=$task->id ?>" class="btn btn-secondary" role="button">Undone</a></td>
+                            <td><a href="router.php?c=task&a=show&id=<?=$task->id ?>" class="btn btn-secondary" role="button">Show</a></td>
+
+                        <?php } ?>
                     </tr>
                     <?php } else { ?>
                     <tr>
                         <td><?= $task->description ?></td>
+                        <?php if($user->role == 'Administrador'){ ?>
                         <td><a href="router.php?c=task&a=task_done&id=<?=$task->id ?>" class="btn btn-success" role="button">Done</a></td>
+                        <td><a href="router.php?c=task&a=show&id=<?=$task->id ?>" class="btn btn-secondary" role="button">Show</a></td> 
                     </tr>
+                    <?php } ?>
                     <?php } ?>
                 <?php } ?>
             </tbody>
         </table>
-        <td><a href="router.php?c=task&a=create" class="btn btn-info" role="button">Criar Tarefa</a></td>
+        <?php if($user->role == 'Administrador'){ ?>
+            <div>
+                <form action="./router.php?c=task&a=store" method="POST">
+                    <input name="description" id="description" value="<?php if(isset($task)) { echo $task->description; }?>" class="form-control" placeholder="Descrição" type="text">
+            
+                        </div> <!-- form-group end.// -->
+                    <select class="form-control" id="func_id" name="func_id">
+                                <?php foreach ($funcionarios as $func) { ?>
+                                    <option value="<?=$func->id?>">
+                                    <?= $func->username ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+            </div> <!-- form-group end.// -->
+                    <button type="submit" class="btn btn-primary btn-block"> Criar Tarefa </button>
+                </form>
+            </div>
+            <!--<td><a href="router.php?c=task&a=create" class="btn btn-info" role="button">Criar Tarefa</a></td>-->
+        <?php } ?>
     </div>
 </body>

@@ -87,6 +87,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="router.php?c=user&a=create">Novo Funcionário
                                 </a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=task&a=index">Tarefas
+                                </a>
                             <?php
                             }
                             else if($user->role == 'Funcionario'){?>
@@ -110,7 +113,10 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="router.php?c=user&a=create">Novo Cliente</a>
-                                </li>             
+                                </li>   
+                                <li class="nav-item">
+                                    <a class="nav-link" href="router.php?c=task&a=index">Tarefas
+                                </a>          
                             <?php 
                             } 
                         else{

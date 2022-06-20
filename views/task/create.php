@@ -35,6 +35,17 @@
                     <option>Yes</option>
                 </select>
             </div> <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-check"></i> </span>
+                </div>
+                <select class="form-control" id="select_func" name="func_id">
+                                <?php foreach ($funcionarios as $func) { ?>
+                                    <option value="<?=$func->username?>">
+                                    </option>
+                                <?php } ?>
+                            </select>
+            </div> <!-- form-group end.// -->
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block"> Criar Tarefa </button>
             </div> <!-- form-group// -->
